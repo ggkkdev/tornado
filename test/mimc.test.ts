@@ -1,12 +1,12 @@
 import {ethers} from "hardhat";
-import {MiMC__factory} from "../types";
 import inputJson from '../circom/input.json';
 import outputJson from '../circom/output.json';
 import {expect} from "chai";
+import {MiMC, MiMC__factory} from "../typechain";
 
 
 describe('test MiMC hash function', () => {
-    let contract: any;
+    let contract: MiMC;
     before(async () => {
         const contractFactory = await ethers.getContractFactory("MiMC") as MiMC__factory;
         contract = await contractFactory.deploy();
